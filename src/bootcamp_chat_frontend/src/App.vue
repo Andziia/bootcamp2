@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { bootcamp_chat_backend } from '../../declarations/bootcamp_chat_backend';
 
-export default{
+export default {
   data() {
     return {
       newNote: "",
@@ -13,7 +13,7 @@ export default{
     async dodajNotatke() {
       await bootcamp_chat_backend.add_note(this.newNote)
       await this.pobierzNotatki()
-    }
+    },
     async pobierzNotatki() {
       this.notes = await bootcamp_chat_backend.get_notes()
     }
@@ -33,7 +33,7 @@ export default{
       {{ notes }}
     </div>
     <div>
-    <textarea v-model="newNote"></textarea><button @click="dodajNotatke">Dodaj notatke</button>
-   </div>
+      <textarea v-model="newNote"></textarea><button @click="dodajNotatke">Dodaj notatke</button>
+    </div>
   </main>
 </template>
